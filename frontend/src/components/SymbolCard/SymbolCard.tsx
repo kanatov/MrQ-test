@@ -5,6 +5,7 @@ import { useAppSelector } from '@/hooks/redux';
 import ListItem from '@/components/ListItem';
 import { useState, memo } from 'react';
 import Price from '@/components/Price';
+import { selectedCard } from '@/store/dashboardOptionsSlice';
 
 type SymbolCardProps = {
   id: string;
@@ -26,6 +27,7 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
   const handleOnClick = () => {
     onClick(id);
   };
+  const isSelected = useAppSelector(selectedCard) === id;
 
   return (
     <div
@@ -36,7 +38,9 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
           : priceChange.change === 'DOWN'
           ? 'symbolCard__down'
           : ''
-      } ${priceChange.increase25 ? 'symbolCard__shake' : ''}`}
+      } ${priceChange.increase25 ? 'symbolCard__shake' : ''} ${
+        isSelected ? 'symbolCard__selected' : ''
+      }`}
     >
       <div>
         {id} - {trend}
