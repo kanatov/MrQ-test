@@ -3,7 +3,7 @@ import './symbolCard.css';
 import { ReactComponent as CompanyIcon } from '@/assets/company.svg';
 import { useAppSelector } from '@/hooks/redux';
 import ListItem from '@/components/ListItem';
-import { memo } from 'react';
+import { useState, memo } from 'react';
 import Price from '@/components/Price';
 
 type SymbolCardProps = {
@@ -14,18 +14,34 @@ type SymbolCardProps = {
 
 const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
   const { trend, companyName } = useAppSelector((state) => state.stocks.entities[id]);
+  const [priceChange, setPriceChange] = useState<{
+    increase25: boolean;
+    change: 'UP' | 'DOWN' | null;
+  }>({
+    increase25: false,
+    change: null
+  });
 
   const handleOnClick = () => {
     onClick(id);
   };
 
   return (
-    <div onClick={handleOnClick}>
+    <div
+      onClick={handleOnClick}
+      className={`symbol-card ${
+        priceChange.change === 'UP'
+          ? 'symbolCard__up'
+          : priceChange.change === 'DOWN'
+          ? 'symbolCard__down'
+          : ''
+      } ${priceChange.increase25 ? 'symbolCard__shake' : ''}`}
+    >
       <div>
         {id} - {trend}
       </div>
       <div>Price:</div>
-      <Price price={price} />
+      <Price price={price} onPriceChange={setPriceChange} />
       <ListItem Icon={<CompanyIcon />} label={companyName} />
     </div>
   );
