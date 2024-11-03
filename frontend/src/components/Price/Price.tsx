@@ -13,7 +13,7 @@ const Price = ({ price, onPriceChange }: PriceProps) => {
     onPriceChange({ increase25, change });
     previousPrice.current = price;
   }, [price, onPriceChange]);
-  return <div>{price}</div>;
+  return <div>{price || '--'}</div>;
 };
 
 export default memo(Price, (prevProps, nextProps) => prevProps.price === nextProps.price);

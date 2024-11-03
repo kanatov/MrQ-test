@@ -13,7 +13,8 @@ type SymbolCardProps = {
 };
 
 const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
-  const { trend, companyName } = useAppSelector((state) => state.stocks.entities[id]);
+  const { trend, companyName, marketCap } = useAppSelector((state) => state.stocks.entities[id]);
+
   const [priceChange, setPriceChange] = useState<{
     increase25: boolean;
     change: 'UP' | 'DOWN' | null;
@@ -43,6 +44,7 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
       <div>Price:</div>
       <Price price={price} onPriceChange={setPriceChange} />
       <ListItem Icon={<CompanyIcon />} label={companyName} />
+      <div>Market Cap: {marketCap}</div>
     </div>
   );
 };
