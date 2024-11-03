@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { memo } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import SymbolCard from '../SymbolCard';
 import { fetchAllStocks, selectors } from '@/store/stocksSlice';
@@ -23,4 +24,4 @@ const SymbolsGrid = ({ onSymbolClick }: SymbolsGridProps) => {
   );
 };
 
-export default SymbolsGrid;
+export default memo(SymbolsGrid);
