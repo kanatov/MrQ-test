@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import SymbolCard from '../SymbolCard';
 import { fetchAllStocks, selectors } from '@/store/stocksSlice';
 import { selectedCard, setSelectedCard, selectShowCardInfo } from '@/store/dashboardOptionsSlice';
+import './symbolsGrid.css';
 
 const SymbolsGrid = () => {
   const stockSymbols = useAppSelector(selectors.selectStockIds);
@@ -20,8 +21,8 @@ const SymbolsGrid = () => {
 
   return (
     <div
-      className={`symbolsView__cards ${isSelected ? 'symbolsView__cards-selected' : ''} ${
-        showCardInfo ? ' symbolsView__cards-info' : ''
+      className={`symbolsGrid ${isSelected ? 'symbolsGrid-selected' : ''} ${
+        showCardInfo ? ' symbolsGrid-info' : ''
       }`}
     >
       {stockSymbols.map((id, i) => (

@@ -43,7 +43,7 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
   return (
     <div
       onClick={handleOnClick}
-      className={`symbol-card ${
+      className={`symbolCard ${
         priceChange.change === 'UP'
           ? 'symbolCard__up'
           : priceChange.change === 'DOWN'

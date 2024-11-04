@@ -1,0 +1,23 @@
+.symbolsView {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+.symbolsView .symbolsView__content {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 4px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.symbolsView .symbolsView__chart {
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 1023px) {
+  .symbolsView .symbolsView__content {
+    flex-direction: column;
+  }
+}

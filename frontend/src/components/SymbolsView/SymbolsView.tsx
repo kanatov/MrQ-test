@@ -1,19 +1,20 @@
 import SymbolsGrid from '@/components/SymbolsGrid';
 import PriceChart from '@/components/PriceChart';
 import DesktopInfo from './src/DesktopInfo';
+import './symbolsView.css';
 
 const SymbolsView = () => {
   return (
-    <div className="symbolsView">
+    <main className="symbolsView">
       <DesktopInfo />
-      <div className="symbolsView__chart">
-        <h3>PRICE HISTORY</h3>
-      </div>
       <div className="symbolsView__content">
-        <PriceChart />
+        <div className="symbolsView__chart">
+          <h3>PRICE HISTORY</h3>
+          <PriceChart />
+        </div>
         <SymbolsGrid />
       </div>
-    </div>
+    </main>
   );
 };
 
