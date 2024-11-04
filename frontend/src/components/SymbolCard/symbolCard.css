@@ -54,6 +54,10 @@
   font-weight: 800;
 }
 
+.symbolsGrid:not(.symbolsGrid-info) .symbolCard__content .listItem {
+  display: none;
+}
+
 @keyframes shake {
   10%,
   90% {
