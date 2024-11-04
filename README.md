@@ -73,27 +73,27 @@ You should push the starting project monorepo to a private repository (Such as G
 
 You need to replicate the functionality and design as closely as possible to what is shown in the videos and images.
 
-- Fully replicate the card , including:
-  - Shake Animation (It is provided in the CSS)
-  - The Glow states
-  - The scaling and glow on user interaction (select/unselected)
-  - The trend indicator (red/green arrows)
-  - The implementation of the `SymbolCard` should be as granular as possible, i.e. SymbolCard should be a "smart" component built with "dumb" components.
-- The Cards container
-  - Visually
-  - The scroll behavior
-- The layout change between desktop and mobile devices.
-- Price chart should be visible only when a card is selected.
-- "+info" functionality (Show/hide the info on the cards)
-- Persistence of the active/selected card when navigating to other tabs.
-- Responsiveness
+- ✅ Fully replicate the card , including:
+  - ✅ Shake Animation (It is provided in the CSS)
+  - ✅ The Glow states
+  - ✅ The scaling and glow on user interaction (select/unselected)
+  - ✅ The trend indicator (red/green arrows)
+  - ✅ The implementation of the `SymbolCard` should be as granular as possible, i.e. SymbolCard should be a "smart" component built with "dumb" components.
+- ✅ The Cards container
+  - ✅ Visually
+  - ✅ The scroll behavior
+- ✅ The layout change between desktop and mobile devices.
+- ✅ Price chart should be visible only when a card is selected.
+- ✅ "+info" functionality (Show/hide the info on the cards)
+- ✅ Persistence of the active/selected card when navigating to other tabs.
+- ✅ Responsiveness
 - Performance is critical!
-- Formatting of the currency
-- Improve initial loading time (do not try to measure, think of bundle size)
+- ✅ Formatting of the currency
+- ✅ Improve initial loading time (do not try to measure, think of bundle size)
 - Fix race condition (Price History chart)
-- Follow established guidelines/practices in the project, such as:
-  - Components structure
-  - Imports/exports
+- ✅ Follow established guidelines/practices in the project, such as:
+  - ✅ Components structure
+  - ✅ Imports/exports
 
 #### Hints / Recommendations:
 
@@ -104,14 +104,14 @@ You need to replicate the functionality and design as closely as possible to wha
 
 - **The final solution should be highly optimized and implemented as efficiently as possible. In other words, the number of re-renders of the components and the bundle size on initial load should be as low
   as possible.** For example:
-  - When the effects are active (shaking, glowing, etc.) the children of the component should not be re-rendered.
+  - ✅ When the effects are active (shaking, glowing, etc.) the children of the component should not be re-rendered.
   - You should avoid re-rendering the whole component when only a part of it needs to be updated.
-  - _(Hint: For the initial bundle size, in [router/index.ts](frontend/src/router/index.tsx), something combined with `Suspense` will get you there.)_
+  - ✅ _(Hint: For the initial bundle size, in [router/index.ts](frontend/src/router/index.tsx), something combined with `Suspense` will get you there.)_
 - **Please ensure that the code you submit reflects your best work and you use best practices.**
-- **The commit history should be granular with descriptive commit comments**
-- **You should write custom CSS (in other words, do not use UI Libraries). Using [BEM methodology](https://getbem.com/naming/) for CSS classes is a nice to have but not required.**
+- ✅ **The commit history should be granular with descriptive commit comments**
+- ✅ **You should write custom CSS (in other words, do not use UI Libraries). Using [BEM methodology](https://getbem.com/naming/) for CSS classes is a nice to have but not required.**
   - You can use postcss, sass, less, etc. if you prefer.
-- **Avoid writing inline styles.**
+- ✅ **Avoid writing inline styles.**
 
 ## Dashboard Page Layout
 
@@ -123,9 +123,9 @@ The layout consists of a `heading`,`info cards`, `news cards`, `navigation`, `st
 
 The layout should be responsive and should be able to be displayed on desktop, tablet and mobile devices.
 
-- On desktop devices the price chart should take `400px` of the width. The remaining
+- ✅ On desktop devices the price chart should take `400px` of the width. The remaining
   width should be used for the stock cards list.
-- On tablet/mobile and other devices with screen smaller than `1024px`, the price chart should be displayed above the
+- ✅ On tablet/mobile and other devices with screen smaller than `1024px`, the price chart should be displayed above the
   stock cards list.
 
 ### Stock Card List
@@ -133,14 +133,14 @@ The layout should be responsive and should be able to be displayed on desktop, t
 The cards should be displayed in a responsive container. The container
 should take the remaining of the height from the page
 
-- bellow the title and navigation on desktop
-- bellow the title, navigation and chart on tablet/mobile
+- ✅ bellow the title and navigation on desktop
+- ✅ bellow the title, navigation and chart on tablet/mobile
 
 #### User Actions:
 
-- The user should be able to select a stock card by clicking on it. When a card is selected, it should be highlighted
+- ✅ The user should be able to select a stock card by clicking on it. When a card is selected, it should be highlighted
   with black shadow and scaled up by around 2-4%. (Check video/images)
-- If there is an active/selected card, the other cards should be scaled down by around 2-4%. (Check video/images)
+- ✅ If there is an active/selected card, the other cards should be scaled down by around 2-4%. (Check video/images)
 
 [dashboard card active](instruction_assets/dashboard_card_active.png)
 
@@ -161,40 +161,40 @@ sometimes the price chart won't behave as expected)_
 
 [card green](instruction_assets/card_green.png)
 
-**The stock card should be a responsive component.**
+✅ **The stock card should be a responsive component.**
 
 #### Variations
 
-- Default _(no trend)_
-- Positive trend _(green upwards arrow)_
-- Negative trend _(red downwards arrows)_
+- ✅ Default _(no trend)_
+- ✅ Positive trend _(green upwards arrow)_
+- ✅ Negative trend _(red downwards arrows)_
 
 #### Fields
 
-- **Header**: Header title is the stock symbol. On the right side of the header there is a
+- ✅ **Header**: Header title is the stock symbol. On the right side of the header there is a
   trend marker (only if the trend is available)
 
-- **Trend Marker**: Some stocks may have a positive or negative
+- ✅ **Trend Marker**: Some stocks may have a positive or negative
   trend which is indicated by **green** _(positive)_ and **red** _(negative)_ arrows.
   Assets for this can be found in the [frontend/src/assets](frontend/src/assets) folder.
-- `assets` folder.
+- ✅ `assets` folder.
 
-- **Price** _(in USD)_: Formatted price of the stock.
-- **Company Name, Industry and Market cap**: Info fields about the stock.
+- ✅ **Price** _(in USD)_: Formatted price of the stock.
+- ✅ **Company Name, Industry and Market cap**: Info fields about the stock.
   Assets for this can be found in the [frontend/src/assets](frontend/src/assets) folder.
 
 #### Animations/Interactions specs
 
-- If the price changes for more than 25% from the previous price, the card should shake
-  - The shake animation class can be found in the [frontend/src/components/SymbolCard/symbolCard.css](frontend/src/components/SymbolCard/symbolCard.css) `symbolCard__shake`.
-- If the `last price` change is `positive`, the card should flash with `green shadow`. (Check videos)
-- If the `last price` change is `negative`, the card should flash with `red shadow`. (Check videos)
-- If the card is currently selected, it should have a black shadow around it. (Check videos)
-  - **NOTE**: The flashing shadow from the price changes takes precedence over the black shadow that is shown when a card is selected. (Check videos)
+- ✅ If the price changes for more than 25% from the previous price, the card should shake
+  - ✅ The shake animation class can be found in the [frontend/src/components/SymbolCard/symbolCard.css](frontend/src/components/SymbolCard/symbolCard.css) `symbolCard__shake`.
+- ✅ If the `last price` change is `positive`, the card should flash with `green shadow`. (Check videos)
+- ✅ If the `last price` change is `negative`, the card should flash with `red shadow`. (Check videos)
+- ✅ If the card is currently selected, it should have a black shadow around it. (Check videos)
+  - ✅ **NOTE**: The flashing shadow from the price changes takes precedence over the black shadow that is shown when a card is selected. (Check videos)
 
-### Bonus points for using custom hooks, especially for the **animations** and **effects (box shadow)**
+### ✅ Bonus points for using custom hooks, especially for the **animations** and **effects (box shadow)**
 
-### ESTIMATED TIME: 2-4 hours
+### 🗿 ESTIMATED TIME: 2-4 hours
 
 **_--- GOOD LUCK ---_**
 

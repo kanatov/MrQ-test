@@ -1779,6 +1779,7 @@ __metadata:
     react-router-dom: ^6.10.0
     recharts: ^2.5.0
     remove: ^0.1.5
+    short-number: ^1.0.7
     typescript: ^4.9.3
     vite: ^4.2.0
     vite-plugin-svgr: ^2.4.0
@@ -2993,6 +2994,13 @@ __metadata:
   version: 3.0.0
   resolution: "shebang-regex@npm:3.0.0"
   checksum: 1a2bcae50de99034fcd92ad4212d8e01eedf52c7ec7830eedcf886622804fe36884278f2be8be0ea5fde3fd1c23911643a4e0f726c8685b61871c8908af01222
+  languageName: node
+  linkType: hard
+
+"short-number@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "short-number@npm:1.0.7"
+  checksum: fefbddc84a69ec3427a4aeef8e245c11f24afad77480b4f135883cdcc6d6c2179c1e8de35e090291aea67ff87b7559fe4e2cb5db5d9feca2b65c592fd8cc5160
   languageName: node
   linkType: hard
 

@@ -18,6 +18,7 @@
     "react-router-dom": "^6.10.0",
     "recharts": "^2.5.0",
     "remove": "^0.1.5",
+    "short-number": "^1.0.7",
     "vite-plugin-svgr": "^2.4.0"
   },
   "devDependencies": {
