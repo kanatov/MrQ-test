@@ -1,10 +1,10 @@
 .symbolsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
-  grid-gap: 1px;
+  grid-gap: 15px;
   flex: 1;
   background-color: #e2e2e4;
-  padding: 14px;
+  padding: 22px;
   border-radius: 6px;
   overflow: scroll;
 }

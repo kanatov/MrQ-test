@@ -1,4 +1,3 @@
-// frontend/src/components/SymbolCard/SymbolCard.tsx
 import './symbolCard.css';
 import TrendDown from '@/assets/down.png';
 import TrendUp from '@/assets/up.png';
@@ -41,7 +40,7 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
     return parseFloat(price.toFixed(1));
   };
   return (
-    <div
+    <article
       onClick={handleOnClick}
       className={`symbolCard ${
         priceChange.change === 'UP'
@@ -49,24 +48,26 @@ const SymbolCard = ({ id, onClick, price }: SymbolCardProps) => {
           : priceChange.change === 'DOWN'
           ? 'symbolCard__down'
           : ''
-      } ${priceChange.increase25 ? 'symbolCard__shake' : ''} ${
-        isSelected ? 'symbolCard__selected' : ''
+      } ${isSelected ? 'symbolCard__selected' : ''} ${
+        priceChange.increase25 ? 'symbolCard__shake' : ''
       }`}
     >
-      <div>
-        {id}
-        {trend === 'UP' ? (
-          <img src={TrendUp} alt="Positive trend" />
-        ) : trend === 'DOWN' ? (
-          <img src={TrendDown} alt="Negative trend" />
-        ) : null}
-      </div>
-      <div>Price:</div>
-      <Price price={formatPrice(price)} onPriceChange={setPriceChange} />
-      <ListItem Icon={<CompanyIcon />} label={companyName} spacing="space-between" />
-      <ListItem Icon={<IndustryIcon />} label={industry} spacing="space-between" />
-      <ListItem Icon={<CapIcon />} label={`$${shortNumber(marketCap)}`} spacing="space-between" />
-    </div>
+      <h3 className="symbolCard__header">{id}</h3>
+      <section className="symbolCard__content">
+        <div className="symbolCard__priceGroup">
+          Price:
+          <Price price={formatPrice(price)} onPriceChange={setPriceChange} />
+        </div>
+        <ListItem Icon={<CompanyIcon />} label={companyName} spacing="space-between" />
+        <ListItem Icon={<IndustryIcon />} label={industry} spacing="space-between" />
+        <ListItem Icon={<CapIcon />} label={`$${shortNumber(marketCap)}`} spacing="space-between" />
+      </section>
+      {trend === 'UP' ? (
+        <img className="symbolCard__trendIcon" src={TrendUp} alt="Positive trend" />
+      ) : trend === 'DOWN' ? (
+        <img className="symbolCard__trendIcon" src={TrendDown} alt="Negative trend" />
+      ) : null}
+    </article>
   );
 };
 

@@ -1,22 +1,68 @@
 .symbolCard {
-  border: 2px solid black; /* just for visibility, feel free to remove it */
-  margin: 10px; /* just for visibility, feel free to remove it */
-  padding: 10px; /* just for visibility, feel free to remove it */
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+  border-radius: var(--border);
+  background: white;
+  --scale: 1;
+  transform: scale(var(--scale));
+  --select-shadow: 0;
+  --price-shadow: 0;
+  --border: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, var(--select-shadow));
+}
+.symbolsGrid-selected .symbolCard:not(.symbolCard__selected) {
+  --scale: 0.93;
+}
+.symbolCard__selected {
+  --select-shadow: 1;
+  --scale: 1.05;
 }
 
-.symbolCard__shake {
-  animation: shake 0.62s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+.symbolCard.symbolCard__shake {
+  animation: shake 0.62s cubic-bezier(0.36, 0.07, 0.19, 0.97) none, shadowUP 1s none;
+}
+.symbolCard__header {
+  padding: 0 8px 2px;
+  background: black;
+  color: white;
+  position: relative;
+  border-radius: var(--border) var(--border) 0 0;
+}
+.symbolCard__content {
+  padding: 0 6px 6px;
+}
+.symbolCard__trendIcon {
+  position: absolute;
+  top: -16px;
+  right: -20px;
+  width: 48px;
+  height: auto;
+}
+.symbolCard__priceGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding-bottom: 15px;
+}
+.symbolCard__price {
+  font-size: 1.6rem;
+  font-weight: 800;
 }
 
 @keyframes shake {
   10%,
   90% {
-    transform: translateX(-2px);
+    transform: translateX(-2px) scale(var(--scale));
   }
 
   20%,
   80% {
-    transform: translateX(4px);
+    transform: translateX(4px) scale(var(--scale));
   }
 
   25%,
@@ -25,7 +71,7 @@
   55%,
   65%,
   75% {
-    transform: translateX(-6px);
+    transform: translateX(-6px) scale(var(--scale));
   }
 
   30%,
@@ -33,6 +79,38 @@
   50%,
   60%,
   70% {
-    transform: translateX(6px);
+    transform: translateX(6px) scale(var(--scale));
+  }
+}
+
+.symbolCard__up {
+  animation: shadowUP 1s none;
+}
+
+.symbolCard__down {
+  animation: shadowDown 1s none;
+}
+
+@keyframes shadowUP {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, max(var(--select-shadow), 0));
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 192, 0, max(var(--select-shadow), 1));
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, max(var(--select-shadow), 0));
+  }
+}
+
+@keyframes shadowDown {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, max(var(--select-shadow), 0));
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(192, 0, 0, max(var(--select-shadow), 1));
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, max(var(--select-shadow), 0));
   }
 }

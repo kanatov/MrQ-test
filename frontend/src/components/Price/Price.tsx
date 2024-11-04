@@ -15,7 +15,7 @@ const Price = ({ price, onPriceChange }: PriceProps) => {
     }
     previousPrice.current = price;
   }, [price, onPriceChange]);
-  return <div>${price !== null ? price : '--'}</div>;
+  return <strong className="symbolCard__price">${price !== null ? price : '--'}</strong>;
 };
 
 export default memo(Price, (prevProps, nextProps) => prevProps.price === nextProps.price);
